@@ -1,0 +1,145 @@
+# ============================================================
+# Hospital Price Intelligence - .gitignore
+# ============================================================
+
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+hpienv/
+
+# -------------------------
+# Environment / Secrets
+# -------------------------
+.env
+.env.*
+!.env.example
+
+# -------------------------
+# Jupyter
+# -------------------------
+.ipynb_checkpoints/
+
+# -------------------------
+# Testing
+# -------------------------
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+
+# -------------------------
+# Type checking / linting
+# -------------------------
+.mypy_cache/
+.pyre/
+.ruff_cache/
+.pytype/
+
+# -------------------------
+# OS / IDE
+# -------------------------
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+
+*.swp
+*.swo
+
+# -------------------------
+# Project data
+# -------------------------
+
+# Generated/intermediate data
+data/interim/*
+data/processed/*
+
+# Keep folder structure
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# DuckDB database
+*.duckdb
+*.duckdb.wal
+*.duckdb.tmp
+
+# SQLite databases
+*.sqlite
+*.sqlite3
+*.db
+
+# -------------------------
+# Raw healthcare data
+# -------------------------
+
+# Ignore large raw files by default
+# Keep only intentionally committed sample/demo files
+data/raw/*
+!data/raw/.gitkeep
+
+# Common large healthcare data formats
+*.parquet
+*.feather
+*.pkl
+*.pickle
+
+# Large compressed downloads
+*.zip
+*.gz
+*.tar
+*.tar.gz
+*.7z
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+logs/
+
+# -------------------------
+# Generated reports
+# -------------------------
+reports/generated/
+output/
+artifacts/
+
+# -------------------------
+# Temporary files
+# -------------------------
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# -------------------------
+# Secrets / credentials
+# -------------------------
+*.pem
+*.key
+*.crt
+credentials.json
+service-account.json
+
+# Cloud credentials
+.aws/
+.gcloud/
