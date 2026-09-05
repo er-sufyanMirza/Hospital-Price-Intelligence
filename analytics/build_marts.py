@@ -2,28 +2,30 @@ import duckdb
 
 DATABASE_PATH = 'data/processed/hospital_prices.duckdb'
 
-SQL_PATH = 'analytics/mart_price_variation.sql'
+MARTS = ['analytics/mart_price_variation.sql',
+         'analytics/mart_payer_parity.sql',
+         'analytics/mart_price_outliers.sql',
+         'analytics/mart_methodology_summary.sql',
+         'analytics/mart_medicare_comparison.sql']
 
-def build_price_variation_mart():
+def build_marts():
     con = duckdb.connect(DATABASE_PATH)
     
-    with open(SQL_PATH, 'r', encoding='utf-8') as file:
-        sql = file.read()
-        
-        con.execute(sql)
-        
-        count = con.execute(
-    """
-    SELECT COUNT(*)
-    FROM mart_price_variation
-    """
-        ).fetchone()[0]
-        
-        con.close()
-        
-        print("mart price variation created")
-        
-        print(f"Rows:{count}")
+    try:
+        for sql_path in MARTS:
+            print(f"Building {sql_path}...")
+            
+            with open(sql_path, 'r', encoding='utf-8')as file:
+                sql = file.read()
+                
+            con.execute(sql)
+            
+            print('complete')
+            
+    finally:
+        print("\nAll analytical marts built.")
         
 if __name__ == '__main__':
-    build_price_variation_mart()
+    build_marts()
+            
+            
