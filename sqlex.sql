@@ -1,0 +1,1 @@
+create or replace table mart_price_analysis
