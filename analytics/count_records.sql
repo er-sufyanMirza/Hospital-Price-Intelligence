@@ -1,2 +1,4 @@
 create OR REPLACE table count_records as
-SELECT count(benchmark_category) from mart_medicare_comparison
+SELECT benchmark_category count(*) 
+from mart_medicare_comparison
+group by benchmark_category;

@@ -1,0 +1,4 @@
+first of all import duckdb
+then make a connection with the database using duckdb.connect(your_database)
+then write a sql query you wanna execute in duckdb.sql('select ....').df() and convert it to a dataframe
+then close the connection and run the query if you are in py file and if you are in terminal then no need to do this
